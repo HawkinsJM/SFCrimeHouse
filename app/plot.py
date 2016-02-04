@@ -15,7 +15,7 @@ class gPlot:
 		print os.getcwd()
 		district = district
 		crime = crime
-		df = pd.read_csv('app/static/data/perd/{}.csv'.format(district.title()))
+		df = pd.read_csv('app/static/data/perd/{}.csv'.format(district.upper()))
 		tend = df.set_index(pd.to_datetime(df['Unnamed: 0']))
 		tend.index.rename('Date', inplace=True)
 		tend.drop('Unnamed: 0', axis=1, inplace=True)
