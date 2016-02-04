@@ -26,16 +26,22 @@ def login():
 	stitle = "Select Plot Attributes"
 	gtitle = ''
 	form = gForm()
-	if form.validate_on_submit():
-		crime = str(form.crime.data)
-		dist = str(form.district.data)
-		plot = gPlot().cdplot(crime,dist)
-		gtitle = "Housing Cost and {} in the {} District".format(crime,dist)
-		script, div = plot
-		return render_template('index.html',
-                           stitle=stitle,gtitle = gtitle,
-                           form=form,script=script, div=div)
-	else:
+	try:
+		if form.validate_on_submit():
+			crime = str(form.crime.data)
+			dist = str(form.district.data)
+			plot = gPlot().cdplot(crime,dist)
+			gtitle = "Housing Cost and {} in the {} District".format(crime.title(),dist.title())
+			script, div = plot
+			print "Hello"
+			return render_template('index.html',
+	                           stitle=stitle,gtitle = gtitle,
+	                           form=form,script=script, div=div)
+		else:
+			pass
+	except Exception as ex:
+		print "ERROR: index failed"
+		print ex
 		pass
 	return render_template('index.html',stitle=stitle,form=form)
 
