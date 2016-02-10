@@ -60,33 +60,25 @@ def plot3():
 
 @app.route('/bdist', methods=['GET', 'POST'])
 def bdist():
-	stitle = "Plots by District"
-	gtitle = ''
 	form = bdForm()
 	try:
 		if form.validate_on_submit():
 			crime = form.crime_m.data
-			print crime
 			dist = str(form.district_o.data)
 			nc = str(form.norm_crime_house.data)
 			frq = str(form.freq.data)
-			print frq
 			plot = gPlot().bdplot(crime, dist, norm_crime=nc, freq=frq)
-			# gtitle = "Housing Cost and {} in the {} District".format(crime[0].title(),dist.title())
 			script, div = plot
 			return render_template('bdist.html',
-	                           stitle=stitle,gtitle = gtitle,
 	                           form=form,script=script, div=div)
 	except Exception as ex:
 		print "ERROR: index failed"
 		print ex
 		pass
-	return render_template('bdist.html',stitle=stitle,form=form)
+	return render_template('bdist.html',form=form)
 
 @app.route('/bcrime', methods=['GET', 'POST'])
 def bcrime():
-	stitle = "Plots by Crime"
-	gtitle = ''
 	form = bcForm()
 	try:
 		if form.validate_on_submit():
@@ -95,10 +87,8 @@ def bcrime():
 			nd = str(form.norm_dist.data)
 			frq = str(form.freq.data)
 			plot = gPlot().bcplot(crime, dist, nd, freq=frq)
-			#gtitle = "Housing Cost and {} in the {} District".format(crime[0].title(),dist.title())
 			script, div = plot
 			return render_template('bcrime.html',
-	                           stitle=stitle,gtitle = gtitle,
 	                           form=form,script=script, div=div)
 		else:
 			pass
@@ -106,4 +96,4 @@ def bcrime():
 		print "ERROR: index failed"
 		print ex
 		pass
-	return render_template('bcrime.html',stitle=stitle,form=form)
+	return render_template('bcrime.html',form=form)

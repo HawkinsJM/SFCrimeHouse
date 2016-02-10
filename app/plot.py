@@ -37,7 +37,7 @@ class gPlot:
 		x = dsdf.index
 
 		y2 = dsdf['averageListingPrice'].divide(1000000)
-		p = figure(plot_width=800,
+		p = figure(plot_width=1100,
 		           plot_height=500,
 		           title='Plot of Crimes and Housing Cost in {} District'.format(district.title()),
 		              x_axis_label='Date',
@@ -114,9 +114,8 @@ class gPlot:
 		adh = df.set_index(pd.to_datetime(df['weekEndingDate']))
 		adh.index.rename('Date', inplace=True)
 		#adh.drop('Unnamed: 0', axis=1, inplace=True)
-		print adh.tail()
 
-		p = figure(plot_width=800,
+		p = figure(plot_width=1100,
 	               plot_height=500,
 	               title='Plot of {} in District(s)'.format(crime.title()),
 	                  x_axis_label='Date',
