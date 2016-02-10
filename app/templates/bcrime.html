@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %} - By Crime{% endblock %}
+{% block content %}
+  <form action="{{ action_url }}" method="post" name="bcrime">
+      {{ form.hidden_tag() }}
+      <h1>{{stitle}}</h1>
+       Crime:
+      {{ form.crime_o }}           
+       District:
+      {{ form.district_m }}
+      Crime Normalization:
+      {{ form.norm_dist }}
+      Data Point Frequency:
+      {{ form.freq }}
+      <input type="submit" value="Plot">
+  </form>
+  <h1>{{gTitle}}</h1>
+  {{ div | safe }}
+{% endblock %}
