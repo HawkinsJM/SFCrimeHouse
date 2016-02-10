@@ -19,14 +19,14 @@ class gPlot:
 		district = district
 		crime = list(crime)
 		#Pull district file
-		fname = '../cast2/app/static/data/perd/{}-{}.csv'.format(district.upper(),frq.upper())
+		fname = 'app/static/data/perd/{}-{}.csv'.format(district.upper(),frq.upper())
 		df = pd.read_csv(fname)
 		dsdf = df.set_index(pd.to_datetime(df['Unnamed: 0']))
 		dsdf.index.rename('Date', inplace=True)
 		dsdf.drop('Unnamed: 0', axis=1, inplace=True)
 
 		#Pull all city file
-		fname = '../cast2/app/static/data/perd/{}-{}.csv'.format('ALL',frq.upper())
+		fname = 'app/static/data/perd/{}-{}.csv'.format('ALL',frq.upper())
 		df = pd.read_csv(fname)
 		sfdf = df.set_index(pd.to_datetime(df['Unnamed: 0']))
 		sfdf.index.rename('Date', inplace=True)
@@ -91,7 +91,7 @@ class gPlot:
 		nd = norm_dist
 		districts = list(dist)
 		crime = crime
-		fname = '../cast2/app/static/data/perc/{}-{}.csv'.format(crime.upper(),frq.upper())
+		fname = 'app/static/data/perc/{}-{}.csv'.format(crime.upper(),frq.upper())
 		df = pd.read_csv(fname)
 		dsdf = df.set_index(pd.to_datetime(df['Unnamed: 0']))
 		dsdf.index.rename('Date', inplace=True)
@@ -102,14 +102,14 @@ class gPlot:
 		x = dsdf.index
 
 		#Pull all city crime and house file
-		fname = '../cast2/app/static/data/perd/{}-{}.csv'.format('ALL',frq.upper())
+		fname = 'app/static/data/perd/{}-{}.csv'.format('ALL',frq.upper())
 		df = pd.read_csv(fname)
 		sfdf = df.set_index(pd.to_datetime(df['Unnamed: 0']))
 		sfdf.index.rename('Date', inplace=True)
 		sfdf.drop('Unnamed: 0', axis=1, inplace=True)
 
 		#Pull all district house file
-		fname = '../cast2/app/static/data/AllDistHouse-{}.csv'.format(frq.upper())
+		fname = 'app/static/data/AllDistHouse-{}.csv'.format(frq.upper())
 		df = pd.read_csv(fname)
 		adh = df.set_index(pd.to_datetime(df['weekEndingDate']))
 		adh.index.rename('Date', inplace=True)
