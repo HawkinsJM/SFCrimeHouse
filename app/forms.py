@@ -29,7 +29,7 @@ class bdForm(Form):
 	# 	dist_list = pickle.load(f)
 	crime_m = SelectMultipleField('crime_m',choices=ctypes)
 	district_o = SelectField('district_o',choices=[('BAYVIEW','Bayview'),('CENTRAL', 'Central'), ('MISSION', 'Mission'), ('NORTHERN', 'Northern'),('SOUTHERN', 'Southern'),('TENDERLOIN','Tenderloin'),('ALL', 'All of SF')])
-	norm_crime_house = SelectField('norm_crime_house',choices=[('neither','None'),('crime_ind', 'By Crime in District'), ('crime_sf', 'By Percent. Occur in City'),('crime_deal','By Deal')])
+	norm_crime_house = SelectField('norm_crime_house',choices=[('neither','None'),('crime_ind', 'Normalized within District'), ('crime_sf', 'By Percent. Occur in City'),('crime_deal','Deal Index')])
 	freq = SelectField('freq',choices=[('1M','1 Month'),('3M', '3 Months'), ('6M', '6 Months')], default='6M')
 
 class bcForm(Form):
@@ -56,5 +56,5 @@ class bcForm(Form):
 	# 	dist_list = pickle.load(f)
 	crime_o = SelectField('crime_o',choices=ctypes)
 	district_m = SelectMultipleField('district_m',choices=[('BAYVIEW','Bayview'),('CENTRAL', 'Central'), ('MISSION', 'Mission'), ('NORTHERN', 'Northern'),('SOUTHERN', 'Southern'),('TENDERLOIN','Tenderloin'),('ALL', 'All of SF')])
-	norm_dist = SelectField('norm_dist',choices=[('neither','None'),('dist_deal','By Deal')])
+	norm_dist = SelectField('norm_dist',choices=[('neither','None'),('dist_deal','Deal Index')])
 	freq = SelectField('freq',choices=[('1M','1 Month'),('3M', '3 Months'), ('6M', '6 Months')], default='6M')

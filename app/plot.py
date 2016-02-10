@@ -32,7 +32,7 @@ class gPlot:
 		sfdf.index.rename('Date', inplace=True)
 		sfdf.drop('Unnamed: 0', axis=1, inplace=True)
 
-		color_list = ['blue','red','green','orange','purple','yellow','brown']
+		color_list = ['blue','red','green','orange','purple','teal','brown']
 		ccl = zip(crime[:6],color_list)
 		x = dsdf.index
 
@@ -64,20 +64,20 @@ class gPlot:
 				cc = sfdf[i[0]]
 				dh = dsdf['averageListingPrice']
 				ch = sfdf['averageListingPrice']
-				y = 6*(dc*dh)/(cc*ch)
-				p.yaxis.axis_label = "Deal Value for Crimes / {}".format(frq)
+				y = 1/((dc*dh)/(cc*ch))
+				p.yaxis.axis_label = "Deal Index for Crimes / {}".format(frq)
 			if norm_crime=='neither':
 				print "plotting neither"
 				y = dsdf[i[0]]
 				p.yaxis.axis_label = "Count of Crimes / {}".format(frq)
-			p.line(x, y, line_width=2, color=i[1], alpha = .5, legend="{}".format(str(i[0]).title()))
+			p.line(x, y, line_width=4, color=i[1], alpha = .7, legend="{}".format(str(i[0]).title()))
 
 		#House plots
 		minh = dsdf['averageListingPrice'].min()/1000000
 		maxh= dsdf['averageListingPrice'].max()/1000000
 		p.extra_y_ranges = {"foo": Range1d(start=minh-.03, end=maxh+.03)}
 		p.add_layout(LinearAxis(y_range_name="foo", axis_label='Mean Price for 2 Bedroom (Millions USD)'), 'right', )
-		p.line(x, y2, line_width=2, color="black", line_dash=[4, 4], y_range_name="foo", legend="{} Home Value".format(district.title()))
+		p.line(x, y2, line_width=5, color="black", line_dash=[4, 4], y_range_name="foo", legend="{} Home Value".format(district.title()))
 		
 		p.legend.orientation = "bottom_left"
 		# create the HTML elements to pass to template
@@ -96,7 +96,7 @@ class gPlot:
 		dsdf = df.set_index(pd.to_datetime(df['Unnamed: 0']))
 		dsdf.index.rename('Date', inplace=True)
 		dsdf.drop('Unnamed: 0', axis=1, inplace=True)
-		color_list = ['red','green','orange','purple','brown', 'teal']
+		color_list = ['blue','red','green','orange','purple','teal','brown']
 		dcl = zip(districts[:6],color_list)
 
 		x = dsdf.index
@@ -130,14 +130,14 @@ class gPlot:
 				city_crime = sfdf[crime.upper()]
 				dh = adh[i[0]]
 				ch = sfdf['averageListingPrice']
-				y = 6*(district_crime*dh)/(city_crime*ch)
-				p.yaxis.axis_label = "Deal Vale for {} / {}".format(crime.title(),frq)
+				y = 1/((district_crime*dh)/(city_crime*ch))
+				p.yaxis.axis_label = "Deal Index for {} / {}".format(crime.title(),frq)
 			if nd=='neither':
 				print "plotting neither"
 				y = dsdf[i[0]]
 				p.yaxis.axis_label = "Count of {} / {}".format(crime.title(),frq)
 				#p.y_axis_label='Count of {} / {}'.format(crime.title(),frq)
-			p.line(x, y, line_width=2, color=i[1], alpha = .5, legend="{}".format(i[0].title()))
+			p.line(x, y, line_width=4, color=i[1], alpha = .7, legend="{}".format(i[0].title()))
 
 		p.legend.orientation = "bottom_left"
 	    # create the HTML elements to pass to template
