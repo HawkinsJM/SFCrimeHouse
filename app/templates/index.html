@@ -1,15 +1,6 @@
 {% extends "base.html" %}
 {% block title %} - Home{% endblock %}
 {% block content %}
-  <form action="{{ action_url }}" method="post" name="login">
-      {{ form.hidden_tag() }}
-      <h1>{{stitle}}</h1>
-       Crime:
-      {{ form.crime }}           
-       District:
-      {{ form.district }}
-      <input type="submit" value="Plot">
-  </form>
-  <h1>{{gTitle}}</h1>
-      {{ div | safe }}
+  <h1>{{stitle}}</h1>
+  {{content}}
 {% endblock %}
