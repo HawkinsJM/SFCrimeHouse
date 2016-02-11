@@ -43,3 +43,7 @@ h6 {
     /*background: url(img/intro-bg.jpg) no-repeat center center;*/
     /*background-size: cover;*/
 }
+
+.intro-message {
+	font-size: 16px;
+}
