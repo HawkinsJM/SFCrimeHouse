@@ -1,34 +1,96 @@
-{% extends "base.html" %}
-{% block title %} - By Crime{% endblock %}
-{% block content %}
-<!-- Header -->
-    <a name="for"></a>
-    <div class="intro-header">
-        <div class="container">
+{% extends "base2.html" %}
+{% block title %} - {{page_title}}{% endblock %}
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message">
-                        <h1>Comparing Districts for Particular Crimes</h1>
-                        <h3>Select crime and districts to be plotted.</h3>
-                        <hr class="intro-divider">
-                      <form action="{{ action_url }}" method="post" name="bcrime">
-                            {{ form.hidden_tag() }}
-                             Crime:
-                            {{ form.crime_o }}           
-                             District:
-                            {{ form.district_m }}
-                            Crime Normalization: 
-                            {{ form.norm_dist }}
-                            Data Point Frequency: 
-                            {{ form.freq }}
-                            <input type="submit" value="Plot">
-                      </form>
+<!-- Main Content -->
+    {% block content %}
+<div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+                    <h2 class="post-title">
+                            <center>Select plot paramaters:</center><br>
+                    </h2>
+
+
+
+                        <form class="form-inline" method="post" name="bcrime">
+                        {{ form.hidden_tag() }}
+                        <div class="row">
+                          <div class="col-md-2 col-md-offset-3">
+                                                <div class="form-group">
+                                                <label for="exampleInputName2">Districts:</label><br>
+                                                {{ form.district_m }}
+                                                <!-- <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe"> -->
+                                                </div>
+                          </div>
+                          <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail2">Crime:</label>
+                                                    {{ form.crime_o }}<br>
+                                                    <label for="exampleInputEmail2">Normalization:</label>
+                                                    {{ form.norm_dist }}<br>
+                                                    <label for="exampleInputEmail2">Data Binning: </label>
+                                                    {{ form.freq }}<br>
+
+                                                </div></div>
+                          <div class="col-md-3">
+                                                <button type="submit" class="btn btn-default">Plot</button>
+                          </div>
+                        </div>
+                        </form>
+</div>
+</div>
+</div>
+
+ <!--    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+                    <h2 class="post-title">
+                            Select plot paramaters:
+                    </h2>
+                    <form class="form-inline" method="post" name="bcrime">
+                    {{ form.hidden_tag() }}
+
+                    <div class='row'>
+                    <div class=".col-md-4">
+                        <div class="form-group">
+                        <label for="exampleInputName2">Districts:</label><br>
+                        {{ form.district_m }} -->
+                        <!-- <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe"> -->
+                        <!-- </div>
                     </div>
+                    <div class=".col-md-4">
+                        <div class="form-group">
+                            <label for="exampleInputEmail2">Crime:</label>
+                            {{ form.crime_o }}<br>
+                            <label for="exampleInputEmail2">Crime Normalization:</label>
+                            {{ form.norm_dist }}<br>
+                            <label for="exampleInputEmail2">Data Point Frequency: </label>
+                            {{ form.freq }}<br>
+
+                        </div>
+                    </div>
+                    <div class=".col-mg-4">
+
+                    <button type="submit" class="btn btn-default">Plot</button>
+                    </div>
+                    </div>
+                    </form>
+
+
                 </div>
             </div>
+        </div>
+    </div> -->
+    <hr class="large">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+                
+                    {{ div | safe }}
+                
             </div>
-        <!-- /.container -->
-  {{ div | safe }}
-
-{% endblock %}
+        </div>
+    </div>
+    {% endblock content %}
+  

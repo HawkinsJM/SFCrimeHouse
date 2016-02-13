@@ -5,7 +5,6 @@
     <a name="for"></a>
     <div class="intro-header">
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
@@ -13,7 +12,7 @@
                         <h3>Select crime and districts to be plotted.</h3>
                         <hr class="intro-divider">
                       <form action="{{ action_url }}" method="post" name="bdist">
-                                              {{ form.hidden_tag() }}
+                                {{ form.hidden_tag() }}
                                 Crime:
                                 {{ form.crime_m }}           
                                 District:
@@ -24,11 +23,13 @@
                                 {{ form.freq }}
                                 <input type="submit" value="Plot">
                         </form>
+                      
                     </div>
                 </div>
             </div>
             </div>
+            <div class="graph">
+            {{ div | safe }}
+            </div>
         <!-- /.container -->
-  {{ div | safe }}
-
 {% endblock %}

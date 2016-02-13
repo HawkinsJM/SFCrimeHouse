@@ -55,6 +55,6 @@ class bcForm(Form):
 	# with open('app/static/data/perd/dist.pickle', 'rb') as f:
 	# 	dist_list = pickle.load(f)
 	crime_o = SelectField('crime_o',choices=ctypes)
-	district_m = SelectMultipleField('district_m',choices=[('BAYVIEW','Bayview'),('CENTRAL', 'Central'), ('MISSION', 'Mission'), ('NORTHERN', 'Northern'),('SOUTHERN', 'Southern'),('TENDERLOIN','Tenderloin'),('ALL', 'All of SF')])
+	district_m = SelectMultipleField('district_m',choices=[('BAYVIEW','Bayview'),('CENTRAL', 'Central'), ('MISSION', 'Mission'), ('NORTHERN', 'Northern'),('SOUTHERN', 'Southern'),('TENDERLOIN','Tenderloin'),('ALL', 'All of SF')], default=['BAYVIEW','CENTRAL','MISSION','NORTHERN','SOUTHERN','TENDERLOIN'])
 	norm_dist = SelectField('norm_dist',choices=[('neither','None'),('dist_deal','Deal Index')])
 	freq = SelectField('freq',choices=[('1M','1 Month'),('3M', '3 Months'), ('6M', '6 Months')], default='6M')

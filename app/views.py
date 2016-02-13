@@ -23,8 +23,20 @@ def page_not_found(e):
 
 @app.route('/welcome')
 def welcome():
-	stitle = "Welcome"
-	return render_template('welcome.html',stitle=stitle)
+	page_title = "Welcome"
+	title = "San Fransisco Crime and Housing Cost"
+	sub_heading = "Explore the relationship between crime and housing in SF districts."
+	return render_template('welcome.html',
+							page_title = page_title,
+							title = title,
+							sub_heading = sub_heading,
+							# brk = <hr class="small">
+							)
+
+@app.route('/index')
+def index():
+	stitle = "Index"
+	return render_template('index.html',stitle=stitle)
 
 @app.route('/about')
 def about():
@@ -60,6 +72,9 @@ def plot3():
 
 @app.route('/bdist', methods=['GET', 'POST'])
 def bdist():
+	page_title = "Investigating Districts"
+	title = "Investigate Crime in a District"
+	sub_heading = ""
 	form = bdForm()
 	try:
 		if form.validate_on_submit():
@@ -69,16 +84,29 @@ def bdist():
 			frq = str(form.freq.data)
 			plot = gPlot().bdplot(crime, dist, norm_crime=nc, freq=frq)
 			script, div = plot
-			return render_template('bdist.html',
-	                           form=form,script=script, div=div)
+			return render_template('bds.html',
+	                           form=form,
+	                           script=script,
+	                           div=div,
+	                           page_title = page_title,
+								title = title,
+								sub_heading = sub_heading
+								)
 	except Exception as ex:
 		print "ERROR: index failed"
 		print ex
 		pass
-	return render_template('bdist.html',form=form)
+	return render_template('bds.html',form=form,
+								page_title = page_title,
+								title = title,
+								sub_heading = sub_heading
+								)
 
 @app.route('/bcrime', methods=['GET', 'POST'])
 def bcrime():
+	page_title = "Compare Districts"
+	title = "Compare Districts for Particular Crimes"
+	sub_heading = ""
 	form = bcForm()
 	try:
 		if form.validate_on_submit():
@@ -88,12 +116,23 @@ def bcrime():
 			frq = str(form.freq.data)
 			plot = gPlot().bcplot(crime, dist, nd, freq=frq)
 			script, div = plot
+			print 'validates'
 			return render_template('bcrime.html',
-	                           form=form,script=script, div=div)
+	                           form=form,
+	                           script=script,
+	                           div=div,
+	                           page_title = page_title,
+								title = title,
+								sub_heading = sub_heading
+								)
 		else:
 			pass
 	except Exception as ex:
 		print "ERROR: index failed"
 		print ex
 		pass
-	return render_template('bcrime.html',form=form)
+	return render_template('bcrime.html',form=form,
+								page_title = page_title,
+								title = title,
+								sub_heading = sub_heading
+								)
