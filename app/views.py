@@ -40,13 +40,23 @@ def index():
 
 @app.route('/about')
 def about():
-	stitle = "About"
-	return render_template('about.html')
+	page_title = "About"
+	title = "About"
+	return render_template('about.html',
+	                           page_title = page_title,
+								title = title,
+								sub_heading = sub_heading
+								)
 
 @app.route('/contact')
 def contact():
-	stitle = "Contact"
-	return render_template('Contact.html')
+	page_title = "Contact"
+	title = "Contact"
+	return render_template('Contact.html',
+	                           page_title = page_title,
+								title = title,
+								sub_heading = sub_heading
+								)
 
 @app.route('/plot1')
 def plot1():
