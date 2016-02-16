@@ -44,19 +44,16 @@ def about():
 	title = "About"
 	return render_template('about.html',
 	                           page_title = page_title,
-								title = title,
-								sub_heading = sub_heading
-								)
+								title = title)
 
 @app.route('/contact')
 def contact():
 	page_title = "Contact"
 	title = "Contact"
+	sub_heading = "Site created by Jeffrey Hawkins"
 	return render_template('Contact.html',
 	                           page_title = page_title,
-								title = title,
-								sub_heading = sub_heading
-								)
+								title = title,sub_heading = sub_heading)
 
 @app.route('/plot1')
 def plot1():
