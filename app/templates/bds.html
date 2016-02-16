@@ -1,0 +1,56 @@
+{% extends "base2.html" %}
+{% block title %} - {{page_title}}{% endblock %}
+
+<!-- Main Content -->
+    {% block content %}
+<div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+                    <h2 class="post-title">
+                            <center>Select plot paramaters:</center><br>
+                    </h2>
+
+
+
+                        <form class="form-inline" method="post" name="bdist">
+                        {{ form.hidden_tag() }}
+                        <div class="row">
+                          <div class="col-md-3 col-md-offset-2">
+                                                <div class="form-group">
+                                                <label for="exampleInputName2">Crimes:</label><br>
+                                                {{ form.crime_m }}
+                                                <!-- <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe"> -->
+                                                </div>
+                          </div>
+                          <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail2">District:</label>
+                                                    {{ form.district_o }}<br>
+                                                    <label for="exampleInputEmail2">Normalization:</label>
+                                                    {{ form.norm_crime_house }}<br>
+                                                    <label for="exampleInputEmail2">Data Binning: </label>
+                                                    {{ form.freq }}<br>
+
+                                                </div></div>
+                          <div class="col-md-3">
+                                                <button type="submit" class="btn btn-default">Plot</button>
+                          </div>
+                        </div>
+                        </form>
+
+</div>
+</div>
+</div>
+
+    <hr class="large">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+                
+                    {{ div | safe }}
+                
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
+  
