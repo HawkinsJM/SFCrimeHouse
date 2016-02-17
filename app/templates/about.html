@@ -3,9 +3,20 @@
 {% block content %}
 
 <div class="row">
-     <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+     <!-- <div class="col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1"> -->
+     <div class="col-lg-6 col-lg-offset-3">
         <div class="post-preview">
-                <center><text>This website is intended to provide information about the relationship between housing cost and crime in the different districts of San Fransisco.</text></center><br>
+                <center><text>The goal of this project was to develop a website that allowed users to explore the interpaly between crime and housing cost in several different districts of San Fransisco.<br><br>
+
+                Users can generate plots to investigate the crime in a single district or compare crime across districts. The data can also be normalized, or the "Deal Index" can be used to determine which districts have the best deal on crime. A higher Deal Index is better.<br><br>
+
+				The housing data was gathered from Trulia's API, the crime data was downloaded from data.sfgov.org. These are cleaned and combined in Python/Pandas. The website was created using Flask. Bokeh and Bootstrap were used to make the website and plots look nice. Heroku is used to host the site.</text>
+				<ul class="list-inline intro-social-buttons">
+				    <li><br><br>
+				        <a href="https://github.com/HawkinsJM/SFCrimeHouse" class="btn btn-default btn-lg"><span class="network-name">GitHub</span></a>
+				    </li>
+				</ul>
+				</center><br>
 		</div>
 	</div>
 </div>
