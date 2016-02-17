@@ -1,7 +1,28 @@
 {% extends "base2.html" %}
 {% block title %} - {{page_title}}{% endblock %}
 {% block content %}
-  <text>This project was developed by Jeffrey Hawkins.</text>
-  <li><a href="https://www.linkedin.com/in/jeffrey-hawkins-8411bb78">LinkdIn</a></li>
+<div class="row">
+     <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+        <div class="post-preview">
+                <center>
+<!--                 <h3><text>This project was developed by Jeffrey Hawkins.</text></h3>
+                <br>
+                <br> -->
+
+                <ul class="list-inline intro-social-buttons">
+				    <li>
+				        <a href="https://www.linkedin.com/in/jeffrey-hawkins-8411bb78" class="btn btn-default btn-lg"><span class="network-name">LinkedIn</span></a>
+				   <!--  </li><br><br>
+				    <li>
+				        <a href="/bcrime" class="btn btn-default btn-lg"><span class="network-name">Compare Districts for Particular Crimes</span></a>
+				    </li> -->
+				</ul>
+                </center>
+		</div>
+	</div>
+</div>
+
+
+  
   {{content}}
 {% endblock %}
